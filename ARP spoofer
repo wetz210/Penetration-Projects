@@ -1,3 +1,5 @@
+import scapy, time
+
 def get_mac(ip):
 #previous tool
 
@@ -19,7 +21,7 @@ def spoof(target_ip, spoof_ip):
     spoof(gateway_ip, target_ip)
     packet_sent_count = packets_sent_count +2
     print("\r[+] Sent " + str(packets_sent_count))
-    sys,stdout.flush()
+    sys.stdout.flush()
     time.sleep(2)
  except KeyboardInterrupt:
     print("\n[-] Detected CTRL + C, Resetting ARP tables, hold.\n")
