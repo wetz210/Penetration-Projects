@@ -1,0 +1,17 @@
+import subprocess, csv, os
+
+web_list = []
+text = ""
+file = open('Reader.csv', 'w')
+with open ('bugBounty.txt') as f:
+    lines=f.readlines()
+    for line in lines:
+        web_list = line.split(" ")
+        for web in web_list:
+            print("intiating test with " + web.strip())
+            data = subprocess.run(['<Script>', '<command>', web.strip()], check=True, capture_output=True)
+            print("Data recieved")
+            data = str(data).split('\\n')
+            wr = csv.writer(file)
+            wr.writerow(data)
+print("Success")
